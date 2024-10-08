@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+            width: 100%;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input-group label {
+            flex: 1;
+        }
+
+        .input-group input, .input-group select {
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Churn Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="input-group">
+                <label for="CreditScore">Credit Score:</label>
+                <input type="number" id="CreditScore" name="CreditScore" required>
+            </div>
+
+            <div class="input-group">
+                <label for="Geography">Geography:</label>
+                <select id="Geography" name="Geography">
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Spain">Spain</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="Gender">Gender:</label>
+                <select id="Gender" name="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" required>
+            </div>
+
+            <div class="input-group">
+                <label for="Tenure">Tenure:</label>
+                <input type="number" id="Tenure" name="Tenure" required>
+            </div>
+
+            <div class="input-group">
+                <label for="Balance">Balance:</label>
+                <input type="number" id="Balance" name="Balance" step="0.01" required>
+            </div>
+
+            <div class="input-group">
+                <label for="NumOfProducts">Number of Products:</label>
+                <input type="number" id="NumOfProducts" name="NumOfProducts" required>
+            </div>
+
+            <div class="input-group">
+                <label for="HasCrCard">Has Credit Card (0/1):</label>
+                <input type="number" id="HasCrCard" name="HasCrCard" min="0" max="1" required>
+            </div>
+
+            <div class="input-group">
+                <label for="IsActiveMember">Is Active Member (0/1):</label>
+                <input type="number" id="IsActiveMember" name="IsActiveMember" min="0" max="1" required>
+            </div>
+
+            <div class="input-group">
+                <label for="EstimatedSalary">Estimated Salary:</label>
+                <input type="number" id="EstimatedSalary" name="EstimatedSalary" step="0.01" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
